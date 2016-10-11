@@ -19,8 +19,24 @@ and structures that enhance online discussions, providing
 the basis for more systematic testing of instructional interventions
 and computer-conferencing technologies.
 
+[Evaluating the quality of interaction in asynchronous discussion forums in fully online courses](http://itecideas.pbworks.com/w/file/fetch/58427910/Evaluating%20Quality%20of%20Interactions%20online.pdf)     
+Fully online courses are becoming progressively more popular because of their
+“anytime anywhere” learning flexibility. One of the ways students interact with
+each other and with the instructors within fully online learning environments is
+via asynchronous discussion forums. However, student engagement in online
+discussion forums does not always take place automatically and there is a lack
+of clarity about the ideal role of the instructors in them. In this article, we report
+on our research on the quality of discussion in fully online courses through
+analysis of discussion forum activities. We have conducted our research on two
+large fully online subjects for computing students over two consecutive semesters
+and used a grounded theoretic approach for data analysis. Our results reveal
+what students and instructors consider as quality interaction in fully online
+courses. We also propose two frameworks based on our findings that can be
+used to ensure effective online interaction.   
 
-[Automated Essay Scoring Using Machine Learning](http://nlp.stanford.edu/courses/cs224n/2013/reports/song.pdf)   
+
+
+[Automated Essay Scoring Using Machine Learning](http://nlp.stanford.edu/courses/cs224n/2013/reports/song.pdf)      
 (Stanford student paper on the Kaggle dataset)   
 
 We built an automated essay scoring system
