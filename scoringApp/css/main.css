@@ -1,0 +1,99 @@
+.main{
+    max-width: 800px;
+    margin:0 auto;
+}
+hr{margin-top:20px;}
+
+form{
+    background-color: #eee;
+    padding: 10px;
+}
+
+.custom-control {
+    position: relative;
+    display: inline;
+    padding-left: 1.5rem;
+    cursor: pointer;
+    line-height: 2.2em;
+}
+.custom-control-input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.custom-checkbox .custom-control-indicator {
+}
+
+.custom-control-indicator {
+    width: 27px;
+    height: 27px;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: -2px;
+    left: 0;
+    display: block;
+    /* width: 1rem; */
+    /* height: 1rem; */
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* background-color: #ddd; */
+    /* background-repeat: no-repeat; */
+    /* background-position: center center; */
+    /* -webkit-background-size: 50% 50%; */
+    /* background-size: 50% 50%; */
+}
+.custom-control-description{
+	padding-left: 10px;
+    padding-right: 20px;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-indicator {
+  /*background: url(../sprite.png);*/
+  background-position: -447px 3px;
+
+}
+.custom-control-input:checked~.custom-control-indicator {
+    color: #fff;
+}
+.custom-radio .custom-control-input:checked~.custom-control-indicator:after {
+    background-color: #a6d026;
+    border: 4px solid white;
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+
+}
+.custom-control-input:checked~.custom-control-indicator {
+    color: #fff;
+}
+.custom-radio .custom-control-indicator {
+    border-radius: 50%;
+}
+.submitted{
+    background: #f1fbd3;
+}
+.btn{
+    display: inline-block;
+    background-color: #a6d026;
+    border:1px solid #ccc;
+    padding:10px 20px;
+}
+.btn:hover{
+    background-color: #b5dc41;
+}
+.btn:active{
+    background-color: #befc04;
+}
+.btn.left{
+    margin-left: 0;
+}
+.btn.right{
+    float: right;
+    margin-right: 0;
+}

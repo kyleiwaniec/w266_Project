@@ -1,0 +1,45 @@
+<a class="btn left" ui-sref="criteria">The Reflective Judgment Model Criteria</a>
+<div class="topic">
+<hr>
+<p>TOPIC</p>
+<hr>
+<p ng-bind-html="ss.topic[0].content"></p>
+</div>
+<hr>
+
+<p>COMMENTS</p>
+<hr>
+<div ng-repeat="comment in ss.comments | orderBy:'item_id' track by $index">
+	<p>[Posted by {{comment.role_id | role}}]</p> 
+	<p ng-bind-html="comment.content"></p>
+	<div>
+		<form class="form-inline csschecked" ng-class="{'submitted':comment.submitted}" ng-if="comment.role_id == 53">
+			<label class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" name="score" ng-model="comment.score" value="0">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">irrelevant</span>
+            </label>
+            <label class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" name="score" ng-model="comment.score" value="1">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">pre-reflective</span>
+            </label>
+            <label class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" name="score" ng-model="comment.score" value="2">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">quasi-reflective</span>
+            </label>
+            <label class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" name="score" ng-model="comment.score" value="3">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">reflective</span>
+            </label>
+            <a class="btn right" ng-click="postScore(comment)" href="">Submit Score</a>
+		</form>
+	</div>
+	<hr>
+</div>
+<div class="navigation">
+    <a class="btn left" ng-click="getPrev()" href="">Previous Topic</a>
+    <a class="btn right" ng-click="getNext()" href="">Next Topic</a>
+</div>

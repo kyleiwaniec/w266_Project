@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <!-- <base href="http://scoring.local/"> -->
+    <base href="https://dev.iq4.com/ng-app/lib/scoring/">
+	<title>Reflective Judgement Scoring</title>
+	<link rel="stylesheet" href="css/main.css"/>
+    <script>
+        if(window.location.host.indexOf('scoring.local') != -1){
+            DEBUGMODE = true;
+            DOMAIN = '//scoring.local'
+            API = '//scoring.local:8080'
+           
+        }else if(window.location.host.indexOf('dev') != -1){
+            DEBUGMODE = true;
+            DOMAIN = '//dev.iq4.com/ng-app/lib/scoring'
+            API = '//ec2-23-21-150-163.compute-1.amazonaws.com:8080'
+            // if(window.location.protocol != 'https:'){
+            //   window.location.protocol = 'https'
+            // }
+        }else{
+            DEBUGMODE = false;
+            DOMAIN = '//prod.iq4.com'
+            // if(window.location.protocol != 'https:'){
+            //   window.location.protocol = 'https'
+            // }
+        }
+
+
+    </script>
+</head>
+<body ng-app="iq4scoring">
+	<main ui-view="content" class="main"></main>
+	
+	<script src="https://dev.iq4.com/ng-app/lib/scoring/js/angular.min.js"></script>
+    <script src="https://dev.iq4.com/ng-app/lib/scoring/js/angular-ui-router.min.js"></script>
+    <script src="https://dev.iq4.com/ng-app/lib/scoring/js/main.js"></script>
+    <script src="https://dev.iq4.com/ng-app/lib/scoring/js/routes.js"></script>
+    <script src="https://dev.iq4.com/ng-app/lib/scoring/js/filters.js"></script>
+    <script src="https://dev.iq4.com/ng-app/lib/scoring/js/postscontroller.js"></script>
+    <script src="https://dev.iq4.com/ng-app/lib/scoring/js/criteriacontroller.js"></script>
+    <script src="https://dev.iq4.com/ng-app/lib/scoring/js/scoresservice.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-sanitize.js"></script>
+</body>
+</html>
