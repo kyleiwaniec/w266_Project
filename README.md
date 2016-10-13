@@ -1,6 +1,9 @@
 # w266_Project
 ## Automated Scoring of Written Content
 
+## Project Proposal
+https://docs.google.com/a/berkeley.edu/document/d/1QMrQlmUD0Spzw-8pmo7uCNEoJ7Ni0u6ZgniLrHApGGQ/edit?usp=sharing
+
 Challenge: to automate the assessments of online discussions in an educational setting
 Goal: formative assessment (gauging progress, aiding learning), and summative assessments (scoring)
 
