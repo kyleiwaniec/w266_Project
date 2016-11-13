@@ -11,14 +11,6 @@ import math
 app = Flask(__name__)
 CORS(app)
 
-'''
-GET DATA:
-
-Instead of making a MYSQL call, we can import the spreadsheet
-in ../data/iQ4-Activity.csv,  which is just the result of the SQL command below. 
-Do not store credetials in github.
-
-'''
 
 db = MySQLdb.connect(host="xxx",
                      user="xxx",
@@ -75,20 +67,20 @@ def helloWorld():
 def api_root():
 	return json_result
 
-# Get all topic ids
+# Get all topic ids (related_item_id)
 @app.route('/topics')
 @cross_origin()
 def api_topics():
 	return json.dumps(sorted(topic_ids))
 
-# get a topic given the id
+# get a topic given the id (discussion)
 @app.route('/topic/<topic_id>', methods=['GET', 'POST'])
 @cross_origin()
 def api_topic(topic_id):
 	topic = df[df['item_id'] == float(topic_id)]
 	return topic.to_json(orient="records")
 
-# get all comments for topic
+# get all comments for topic (all comments for the discussion)
 @app.route('/comments/<topic_id>')
 @cross_origin()
 def api_comments(topic_id):
