@@ -1,6 +1,9 @@
 # w266_Project
 ## Automated Scoring of Written Content
 
+## Project Proposal
+https://docs.google.com/a/berkeley.edu/document/d/1QMrQlmUD0Spzw-8pmo7uCNEoJ7Ni0u6ZgniLrHApGGQ/edit?usp=sharing
+
 Challenge: to automate the assessments of online discussions in an educational setting
 Goal: formative assessment (gauging progress, aiding learning), and summative assessments (scoring)
 
@@ -15,3 +18,6 @@ http://nlp.stanford.edu/courses/cs224n/2013/reports/song.pdf
 Possible Data Sources:   
 https://www.kaggle.com/c/asap-aes (from the automated essay scoring competition)   
 ~2,000 untagged posts from several recent courses on the topic of Cyber Security. I have a commitment from work that faculty and mentors will label some portion of this data to use as a test set.
+
+## Project Progress Report
+https://docs.google.com/document/d/1kGt_-UIQbe0GBvlaxf0ebn4t_beJsgbaveENis6b4XE/edit?ts=583246ec
