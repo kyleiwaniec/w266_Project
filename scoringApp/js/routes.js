@@ -8,7 +8,7 @@ iq4scoring.config([
 
     function($locationProvider, $stateProvider, $urlRouterProvider, $sceProvider) {
 
-      
+
       $locationProvider.html5Mode(true);
       $urlRouterProvider.when('/', '/dashboard');
       $urlRouterProvider.otherwise("/dashboard");
@@ -19,7 +19,7 @@ iq4scoring.config([
           url:'/dashboard',
           views: {
             'content': {
-              templateUrl:  DOMAIN+'/views/posts.html',
+              templateUrl: '/views/posts.html',
               controller: "postsController"
             }
           }
@@ -28,17 +28,17 @@ iq4scoring.config([
           url:'/criteria',
           views: {
             'content': {
-              templateUrl: DOMAIN+'/views/criteria.html',
+              templateUrl: '/views/criteria.html',
               controller: "criteriaController"
             }
           }
         })
-        
+
     }
   ])
   .run(['$rootScope', '$location', '$state', '$stateParams',
     function($rootScope, $location, $state, $stateParams) {
-      
+
 
       $rootScope.$state = $state;
       $rootScope.$on('$stateChangeStart', function() {
