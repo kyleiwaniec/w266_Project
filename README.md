@@ -21,3 +21,10 @@ https://www.kaggle.com/c/asap-aes (from the automated essay scoring competition)
 
 ## Project Progress Report
 https://docs.google.com/document/d/1kGt_-UIQbe0GBvlaxf0ebn4t_beJsgbaveENis6b4XE/edit?ts=583246ec
+
+
+## To run Tom's base models docker container
+
+clone the repo   
+from the root of the repo, run `make notebook`    
+in the browser, go to: `localhost:9126` 
