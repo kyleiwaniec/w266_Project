@@ -39,6 +39,7 @@ def extract_features(dataset_name, features_def, features_name):
         pickle.dump(features, f)
         
     print "Done."
+    return features
     
 def model_types():
     return [
@@ -51,12 +52,14 @@ def test_features(features_name):
     print "Loading features %s." % features_name
     with open("/usr/src/app/model-data/%s.pickle" % features_name, "rb") as f:
         features = pickle.load(f)
-        
+    predictions = {}    
     print "Training models."
     for model_name, model in model_types():
         model.fit(features['train_X'], features['train_Y'])
+        predictions[model_name] = model.predict(features['validate_X'])
         score = model.score(features['validate_X'], features['validate_Y'])
         print "## %20s %15s accuracy: %0.1f %%" % (model_name, features_name, score * 100)
+    return (predictions, features)   
         
 def test_combined_features(feature_names):
     in_features = []
