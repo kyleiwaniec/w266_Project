@@ -11,3 +11,4 @@ scipy==0.18.1
 scikit-learn==0.18
 six==1.7.0
 Theano==0.8.2
+nltk==3.2.1

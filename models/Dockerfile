@@ -17,6 +17,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY Lasagne-master.zip /usr/src/app/
 RUN pip install --user --upgrade --no-deps Lasagne-master.zip
 
+RUN pip install --upgrade --no-cache-dir https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0rc0-cp27-none-linux_x86_64.whl
+
 EXPOSE 9123
 
 CMD ["/bin/sh", "-c", "jupyter notebook --debug --notebook-dir=/usr/src/app/models --no-browser --port 9123 --ip=0.0.0.0"]
