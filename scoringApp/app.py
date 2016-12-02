@@ -38,30 +38,30 @@ def helloWorld():
 
 @app.route('/api/')
 def api_root():
-	return json_result
+  return json_result
 
 # Get all topic ids
 @app.route('/api/topics')
 def api_topics():
-	return json.dumps(sorted(topic_ids))
+  return json.dumps(sorted(topic_ids))
 
 # get a topic given the id
 @app.route('/api/topic/<topic_id>', methods=['GET', 'POST'])
 def api_topic(topic_id):
-	topic = df[df['item_id'] == float(topic_id)]
-	return topic.to_json(orient="records")
+  topic = df[df['item_id'] == float(topic_id)]
+  return topic.to_json(orient="records")
 
 # get all comments for topic
 @app.route('/api/comments/<topic_id>')
 def api_comments(topic_id):
-	comments = df.loc[df['related_item_id'] == float(topic_id)]
-	return comments.to_json(orient="records")
+  comments = df.loc[df['related_item_id'] == float(topic_id)]
+  return comments.to_json(orient="records")
 
 
 
 if __name__ == '__main__':
-	app.run(port='8085', host="0.0.0.0")
-	# app.run(host='ec2-23-21-150-163.compute-1.amazonaws.com',port='8080')
+  app.run(port='8085', host="0.0.0.0")
+  # app.run(host='ec2-23-21-150-163.compute-1.amazonaws.com',port='8080')
 
 '''
 NOTES:
