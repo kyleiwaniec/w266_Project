@@ -67,12 +67,6 @@ def pretty_timedelta(fmt="%d:%02d:%02d", since=None, until=None):
 ##
 # Data loading functions
 
-def get_train_test_sents(sentences, split=0.8, shuffle=True):
-    """Get train and test sentences."""
-
-    return train_sentences, test_sentences
-
-
 def tokenize_sentences(s):
     tokenizer = TreebankWordTokenizer()
     return [
@@ -157,7 +151,7 @@ class Corpus(object):
                  for w in words]
         return np.array(self.vocab.words_to_ids(words))
 
-    def generate_training_data(self, content):
+    def generate_training_data(self, content, train_frac=0.8):
         print "Finding sentences..."
 
         tokenizer = TreebankWordTokenizer()
@@ -175,7 +169,6 @@ class Corpus(object):
         rng = np.random.RandomState(42)
         rng.shuffle(sentences)  # in-place
 
-        train_frac = 0.8
         split_idx = int(train_frac * len(sentences))
         train_sentences = sentences[:split_idx]
         test_sentences = sentences[split_idx:]

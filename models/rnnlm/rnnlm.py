@@ -72,7 +72,7 @@ def load_and_score(inputs, corpus, model_params, trained_filename, sort=False):
         for score, words in results:
             print "\"%s\" : %.02f" % (" ".join(words), score)
 
-            
+
 def pretty_timedelta(fmt="%d:%02d:%02d", since=None, until=None):
     """Pretty-print a timedelta, using the given format string."""
     since = since or time.time()
@@ -271,6 +271,8 @@ class RNNLM(object):
                 self.learning_rate_: learning_rate,
                 self.dropout_keep_prob_: keep_prob,
             })
+            if np.isnan(cost):
+                print "NaN! %s" % w
 
             total_cost += cost
             total_words += w.size  # w.size = batch_size * max_time
@@ -289,9 +291,7 @@ class RNNLM(object):
 
     def ScoreDataset(self, session, ids, name="Data"):
         bi = processing.batch_generator(ids, batch_size=100, max_time=100)
-        cost = self.RunEpoch(session, bi,
-                             learning_rate=1.0, keep_prob=1.0,
-                             train=False, verbose=False, tick_s=3600)
+        cost = self.RunEpoch(session, bi, train=False, verbose=True)
         print "%s: avg. loss: %.03f  (perplexity: %.02f)" % (name, cost, np.exp(cost))
 
     def ScoreSeq(self, session, seq, vocab):
