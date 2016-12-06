@@ -1,3 +1,5 @@
+import datetime
+import json
 import pickle
 import random
 
@@ -29,15 +31,15 @@ def extract_features(dataset_name, features_def, features_name, sampling=1.0):
         range(train_data_size),
         int(train_data_size*sampling))
     features["train_X"] = features_def.train(dataset["train_data"].iloc[train_indices])
-    features["train_Y"] = dataset["train_data"].iloc[train_indices]["hasVotes"]
+    features["train_Y"] = dataset["train_data"].iloc[train_indices]["label"]
 
     print "Generating validation set..."
     features["validate_X"] = features_def.transform(dataset["validate_data"])
-    features["validate_Y"] = dataset["validate_data"]["hasVotes"]
+    features["validate_Y"] = dataset["validate_data"]["label"]
 
     print "Generating test set..."
     features["test_X"] = features_def.transform(dataset["test_data"])
-    features["test_Y"] = dataset["test_data"]["hasVotes"]
+    features["test_Y"] = dataset["test_data"]["label"]
 
     print "Writing to disk..."
     with open("/usr/src/app/model-data/%s.pickle" % features_name, "wb") as f:
@@ -59,14 +61,74 @@ def load_features(features_name):
         features = pickle.load(f)
     return features
 
+def update_table(model_name, features_name, precision, recall):
+    try:
+        with open("/usr/src/app/model-data/results.json", "r") as f:
+            table = json.load(f)
+    except:
+        table = {}
+    
+    if precision + recall > 0:
+        f1 = (2 * precision * recall) / (precision + recall)
+    else:
+        f1 = 0
+    table["%s:%s" % (model_name, features_name)] = [
+        model_name, features_name, precision, recall, f1, datetime.datetime.now().isoformat()]
+
+    with open("/usr/src/app/model-data/results.json", "w") as f:
+        json.dump(table, f)
+    
 def test_features(features_name):
     features = load_features(features_name)
 
     print "Training models."
     for model_name, model in model_types():
         model.fit(features['train_X'], features['train_Y'])
-        score = model.score(features['validate_X'], features['validate_Y'])
-        print "## %20s %15s accuracy: %0.1f %%" % (model_name, features_name, score * 100)
+        preds = model.predict(features['validate_X'])
+        
+        true_positives = float(np.sum((features['validate_Y'] == True) & (preds == True)))
+        true_negatives = float(np.sum((features['validate_Y'] == False) & (preds == False)))
+        false_positives = float(np.sum((features['validate_Y'] == False) & (preds == True)))
+        false_negatives = float(np.sum((features['validate_Y'] == True) & (preds == False)))
+        
+        precision = true_positives / max(1, true_positives + false_positives)
+        recall = true_positives / max(1, true_positives + false_negatives)
+        print "## %20s %15s precision: %0.1f%% recall: %0.1f%%" % (
+            model_name, features_name, precision * 100, recall * 100)
+        
+        update_table(model_name, features_name, precision, recall)
+        
+def show_errors(dataset_name, features_name, model_name):
+    dataset = load_dataset(dataset_name)
+    features = load_features(features_name)
+
+    _, model = next(tup for tup in model_types() if tup[0] == model_name)
+    print "Training model %s." % model_name
+    model.fit(features['train_X'], features['train_Y'])
+    
+    preds = model.predict(features['validate_X'])
+    
+    num_examples = np.shape(preds)[0]
+    true_positives = (features['validate_Y'] == True) & (preds == True)
+    true_negatives = (features['validate_Y'] == False) & (preds == False)
+    false_positives = (features['validate_Y'] == False) & (preds == True)
+    false_negatives = (features['validate_Y'] == True) & (preds == False)
+    
+    print "## True positives: %f" % (float(np.sum(true_positives)) / num_examples)
+    print "## True negatives: %f" % (float(np.sum(true_negatives)) / num_examples)
+    print "## False positives: %f" % (float(np.sum(false_positives)) / num_examples)
+    print "## False negatives: %f" % (float(np.sum(false_negatives)) / num_examples)
+    
+    print "True positives:"
+    print dataset['validate_data']['content'].iloc[np.where(true_positives)][:25]
+    print "True negatives:"
+    print dataset['validate_data']['content'].iloc[np.where(true_negatives)][:25]
+    print "False positives:"
+    print dataset['validate_data']['content'].iloc[np.where(false_positives)][:25]
+    print "False negatives:"
+    print dataset['validate_data']['content'].iloc[np.where(false_negatives)][:25]
+  
+ 
 
 def load_combined_features(feature_names):
     in_features = []
@@ -92,5 +154,16 @@ def test_combined_features(feature_names):
     print "Training models."
     for model_name, model in model_types():
         model.fit(features['train_X'], features['train_Y'])
-        score = model.score(features['validate_X'], features['validate_Y'])
-        print "## %20s %30s accuracy: %0.1f %%" % (model_name, combined_name, score * 100)
+        preds = model.predict(features['validate_X'])
+        
+        true_positives = float(np.sum((features['validate_Y'] == True) & (preds == True)))
+        true_negatives = float(np.sum((features['validate_Y'] == False) & (preds == False)))
+        false_positives = float(np.sum((features['validate_Y'] == False) & (preds == True)))
+        false_negatives = float(np.sum((features['validate_Y'] == True) & (preds == False)))
+        
+        precision = true_positives / max(1, true_positives + false_positives)
+        recall = true_positives / max(1, true_positives + false_negatives)
+        print "## %20s %15s precision: %0.1f%% recall: %0.1f%%" % (
+            model_name, combined_name, precision * 100, recall * 100)
+        
+        update_table(model_name, combined_name, precision, recall)
