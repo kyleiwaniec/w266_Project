@@ -1,3 +1,5 @@
 .DS_Store
-data/ka-comments.csv
+data/
 cnn-text-classification-tf/runs/
+cnn-text-classification-tf/data/
+model-data/
