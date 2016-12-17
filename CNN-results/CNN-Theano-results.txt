@@ -1,3 +1,9 @@
+GPU 8 cores, 15GB RAM
+https://trial.dominodatalab.com/u/kylehamilton/rcnn266/settings#execution
+
+run#9 14h, 43m, 27s Dec 10, 2016 @ 12:16 am kylehamilton
+
+
 Namespace(act='relu', batch=16, decay=0.5, depth=2, dev='data/theano_data_dev', dropout_rate=0.3, embedding='word_vectors/stsa.glove.840B.d300.txt.gz', eval_period=-1, hidden_dim=300, l2_reg=1e-05, layer='strcnn', learning='adam', learning_rate=0.001, load='', max_epochs=100, mode=1, order=2, pooling=1, save='output_model_ka', test='data/theano_data_test', train='data/theano_data_train')
 18240 pre-trained embeddings loaded.
 layer 0: n_in=300	n_out=300
