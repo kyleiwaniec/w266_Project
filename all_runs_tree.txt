@@ -1,0 +1,801 @@
+.
+├── LICENSE
+├── README.md
+├── Untitled.ipynb
+├── all_runs_tree.txt
+├── data
+│   ├── neg_data_test
+│   ├── neg_data_train
+│   ├── pos_data_test
+│   ├── pos_data_train
+│   └── rt-polaritydata
+│       ├── rt-polarity.neg
+│       └── rt-polarity.pos
+├── data_helpers.py
+├── data_helpers.pyc
+├── domino.log
+├── dominostats.json
+├── eval.py
+├── runs
+│   ├── 1481167223
+│   │   ├── checkpoints
+│   │   └── summaries
+│   │       ├── dev
+│   │       │   └── events.out.tfevents.1481167223.localhost
+│   │       └── train
+│   │           └── events.out.tfevents.1481167223.localhost
+│   ├── 1481167327
+│   │   ├── checkpoints
+│   │   └── summaries
+│   │       ├── dev
+│   │       │   └── events.out.tfevents.1481167328.localhost
+│   │       └── train
+│   │           └── events.out.tfevents.1481167328.localhost
+│   ├── 1481167428
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-6000
+│   │   │   ├── model-6000.meta
+│   │   │   ├── model-6100
+│   │   │   ├── model-6100.meta
+│   │   │   ├── model-6200
+│   │   │   ├── model-6200.meta
+│   │   │   ├── model-6300
+│   │   │   ├── model-6300.meta
+│   │   │   ├── model-6400
+│   │   │   └── model-6400.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481167428.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481167428.localhost
+│   │   └── vocab
+│   ├── 1481173600
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-2300
+│   │   │   ├── model-2300.meta
+│   │   │   ├── model-2400
+│   │   │   ├── model-2400.meta
+│   │   │   ├── model-2500
+│   │   │   ├── model-2500.meta
+│   │   │   ├── model-2600
+│   │   │   ├── model-2600.meta
+│   │   │   ├── model-2700
+│   │   │   └── model-2700.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481173601.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481173600.localhost
+│   │   └── vocab
+│   ├── 1481177905
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-1000
+│   │   │   ├── model-1000.meta
+│   │   │   ├── model-1100
+│   │   │   ├── model-1100.meta
+│   │   │   ├── model-1200
+│   │   │   ├── model-1200.meta
+│   │   │   ├── model-1300
+│   │   │   ├── model-1300.meta
+│   │   │   ├── model-1400
+│   │   │   └── model-1400.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481177905.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481177905.localhost
+│   │   └── vocab
+│   ├── 1481179535
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481179536.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481179535.localhost
+│   │   └── vocab
+│   ├── 1481180094
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481180095.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481180095.localhost
+│   │   └── vocab
+│   ├── 1481181251
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-1300
+│   │   │   ├── model-1300.meta
+│   │   │   ├── model-1400
+│   │   │   ├── model-1400.meta
+│   │   │   ├── model-1500
+│   │   │   ├── model-1500.meta
+│   │   │   ├── model-1600
+│   │   │   ├── model-1600.meta
+│   │   │   ├── model-1700
+│   │   │   └── model-1700.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481181252.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481181251.localhost
+│   │   └── vocab
+│   ├── 1481250914
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481250915.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481250914.localhost
+│   │   └── vocab
+│   ├── 1481250988
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481250989.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481250989.localhost
+│   │   └── vocab
+│   ├── 1481251020
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481251020.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481251020.localhost
+│   │   └── vocab
+│   ├── 1481251093
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481251094.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481251093.localhost
+│   │   └── vocab
+│   ├── 1481251112
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481251113.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481251113.localhost
+│   │   └── vocab
+│   ├── 1481251176
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481251177.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481251177.localhost
+│   │   └── vocab
+│   ├── 1481251198
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481251198.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481251198.localhost
+│   │   └── vocab
+│   ├── 1481251287
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481251288.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481251287.localhost
+│   │   └── vocab
+│   ├── 1481251340
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481251340.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481251340.localhost
+│   │   └── vocab
+│   ├── 1481251364
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481251364.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481251364.localhost
+│   │   └── vocab
+│   ├── 1481251425
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481251426.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481251426.localhost
+│   │   └── vocab
+│   ├── 1481251771
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481251772.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481251772.localhost
+│   │   └── vocab
+│   ├── 1481251889
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-100
+│   │   │   ├── model-100.meta
+│   │   │   ├── model-200
+│   │   │   ├── model-200.meta
+│   │   │   ├── model-300
+│   │   │   ├── model-300.meta
+│   │   │   ├── model-400
+│   │   │   ├── model-400.meta
+│   │   │   ├── model-500
+│   │   │   └── model-500.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481251889.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481251889.localhost
+│   │   └── vocab
+│   ├── 1481255057
+│   │   ├── checkpoints
+│   │   └── summaries
+│   │       ├── dev
+│   │       │   └── events.out.tfevents.1481255058.localhost
+│   │       └── train
+│   │           └── events.out.tfevents.1481255058.localhost
+│   ├── 1481255169
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481255169.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481255169.localhost
+│   │   └── vocab
+│   ├── 1481255221
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481255221.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481255221.localhost
+│   │   └── vocab
+│   ├── 1481256764
+│   │   ├── checkpoints
+│   │   └── summaries
+│   │       ├── dev
+│   │       │   └── events.out.tfevents.1481256765.localhost
+│   │       └── train
+│   │           └── events.out.tfevents.1481256765.localhost
+│   ├── 1481256895
+│   │   ├── checkpoints
+│   │   └── summaries
+│   │       ├── dev
+│   │       │   └── events.out.tfevents.1481256895.localhost
+│   │       └── train
+│   │           └── events.out.tfevents.1481256895.localhost
+│   ├── 1481256975
+│   │   ├── checkpoints
+│   │   └── summaries
+│   │       ├── dev
+│   │       │   └── events.out.tfevents.1481256975.localhost
+│   │       └── train
+│   │           └── events.out.tfevents.1481256975.localhost
+│   ├── 1481257383
+│   │   ├── checkpoints
+│   │   └── summaries
+│   │       ├── dev
+│   │       │   └── events.out.tfevents.1481257384.localhost
+│   │       └── train
+│   │           └── events.out.tfevents.1481257383.localhost
+│   ├── 1481257775
+│   │   ├── checkpoints
+│   │   └── summaries
+│   │       ├── dev
+│   │       │   └── events.out.tfevents.1481257776.localhost
+│   │       └── train
+│   │           └── events.out.tfevents.1481257776.localhost
+│   ├── 1481258084
+│   │   ├── checkpoints
+│   │   └── summaries
+│   │       ├── dev
+│   │       │   └── events.out.tfevents.1481258084.localhost
+│   │       └── train
+│   │           └── events.out.tfevents.1481258084.localhost
+│   ├── 1481258435
+│   │   ├── checkpoints
+│   │   └── summaries
+│   │       ├── dev
+│   │       │   └── events.out.tfevents.1481258436.localhost
+│   │       └── train
+│   │           └── events.out.tfevents.1481258435.localhost
+│   ├── 1481258539
+│   │   ├── checkpoints
+│   │   └── summaries
+│   │       ├── dev
+│   │       │   └── events.out.tfevents.1481258540.localhost
+│   │       └── train
+│   │           └── events.out.tfevents.1481258540.localhost
+│   ├── 1481294585
+│   │   ├── checkpoints
+│   │   └── summaries
+│   │       ├── dev
+│   │       │   └── events.out.tfevents.1481294586.localhost
+│   │       └── train
+│   │           └── events.out.tfevents.1481294585.localhost
+│   ├── 1481309158
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-100
+│   │   │   └── model-100.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481309159.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481309158.localhost
+│   │   └── vocab
+│   ├── 1481309272
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481309273.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481309272.localhost
+│   │   └── vocab
+│   ├── 1481309358
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481309358.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481309358.localhost
+│   │   └── vocab
+│   ├── 1481309570
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481309570.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481309570.localhost
+│   │   └── vocab
+│   ├── 1481309623
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481309624.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481309623.localhost
+│   │   └── vocab
+│   ├── 1481310059
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-100
+│   │   │   └── model-100.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481310059.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481310059.localhost
+│   │   └── vocab
+│   ├── 1481310162
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-100
+│   │   │   └── model-100.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481310162.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481310162.localhost
+│   │   └── vocab
+│   ├── 1481310445
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481310446.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481310445.localhost
+│   │   └── vocab
+│   ├── 1481310472
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481310472.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481310472.localhost
+│   │   └── vocab
+│   ├── 1481310608
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481310608.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481310608.localhost
+│   │   └── vocab
+│   ├── 1481312876
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481312877.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481312877.localhost
+│   │   └── vocab
+│   ├── 1481313034
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481313035.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481313034.localhost
+│   │   └── vocab
+│   ├── 1481313222
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481313223.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481313223.localhost
+│   │   └── vocab
+│   ├── 1481313839
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-1000
+│   │   │   ├── model-1000.meta
+│   │   │   ├── model-600
+│   │   │   ├── model-600.meta
+│   │   │   ├── model-700
+│   │   │   ├── model-700.meta
+│   │   │   ├── model-800
+│   │   │   ├── model-800.meta
+│   │   │   ├── model-900
+│   │   │   └── model-900.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481313839.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481313839.localhost
+│   │   └── vocab
+│   ├── 1481316860
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-1200
+│   │   │   ├── model-1200.meta
+│   │   │   ├── model-1300
+│   │   │   ├── model-1300.meta
+│   │   │   ├── model-1400
+│   │   │   ├── model-1400.meta
+│   │   │   ├── model-1500
+│   │   │   ├── model-1500.meta
+│   │   │   ├── model-1600
+│   │   │   └── model-1600.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481316860.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481316860.localhost
+│   │   └── vocab
+│   ├── 1481338837
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481338837.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481338837.localhost
+│   │   └── vocab
+│   ├── 1481340827
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481340827.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481340827.localhost
+│   │   └── vocab
+│   ├── 1481341600
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481341601.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481341601.localhost
+│   │   └── vocab
+│   ├── 1481341849
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-100
+│   │   │   └── model-100.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481341849.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481341849.localhost
+│   │   └── vocab
+│   ├── 1481384347
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-500
+│   │   │   ├── model-500.meta
+│   │   │   ├── model-600
+│   │   │   ├── model-600.meta
+│   │   │   ├── model-700
+│   │   │   ├── model-700.meta
+│   │   │   ├── model-800
+│   │   │   ├── model-800.meta
+│   │   │   ├── model-900
+│   │   │   └── model-900.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481384347.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481384347.localhost
+│   │   └── vocab
+│   ├── 1481388825
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481388826.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481388826.localhost
+│   │   └── vocab
+│   ├── 1481389311
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481389311.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481389311.localhost
+│   │   └── vocab
+│   ├── 1481389630
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-1000
+│   │   │   ├── model-1000.meta
+│   │   │   ├── model-600
+│   │   │   ├── model-600.meta
+│   │   │   ├── model-700
+│   │   │   ├── model-700.meta
+│   │   │   ├── model-800
+│   │   │   ├── model-800.meta
+│   │   │   ├── model-900
+│   │   │   └── model-900.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481389630.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481389630.localhost
+│   │   └── vocab
+│   ├── 1481470256
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-400
+│   │   │   ├── model-400.meta
+│   │   │   ├── model-500
+│   │   │   ├── model-500.meta
+│   │   │   ├── model-600
+│   │   │   ├── model-600.meta
+│   │   │   ├── model-700
+│   │   │   ├── model-700.meta
+│   │   │   ├── model-800
+│   │   │   └── model-800.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481470256.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481470256.localhost
+│   │   └── vocab
+│   ├── 1481474959
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-100
+│   │   │   ├── model-100.meta
+│   │   │   ├── model-200
+│   │   │   ├── model-200.meta
+│   │   │   ├── model-300
+│   │   │   └── model-300.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481474960.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481474959.localhost
+│   │   └── vocab
+│   ├── 1481476583
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-300
+│   │   │   ├── model-300.meta
+│   │   │   ├── model-400
+│   │   │   ├── model-400.meta
+│   │   │   ├── model-500
+│   │   │   ├── model-500.meta
+│   │   │   ├── model-600
+│   │   │   ├── model-600.meta
+│   │   │   ├── model-700
+│   │   │   └── model-700.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481476584.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481476583.localhost
+│   │   └── vocab
+│   ├── 1481479730
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-100
+│   │   │   ├── model-100.meta
+│   │   │   ├── model-200
+│   │   │   ├── model-200.meta
+│   │   │   ├── model-300
+│   │   │   └── model-300.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481479731.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481479731.localhost
+│   │   └── vocab
+│   ├── 1481481103
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-100
+│   │   │   ├── model-100.meta
+│   │   │   ├── model-200
+│   │   │   └── model-200.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481481103.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481481103.localhost
+│   │   └── vocab
+│   ├── 1481594260
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-100
+│   │   │   ├── model-100.meta
+│   │   │   ├── model-200
+│   │   │   └── model-200.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481594261.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481594260.localhost
+│   │   └── vocab
+│   ├── 1481595801
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481595802.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481595802.localhost
+│   │   └── vocab
+│   ├── 1481595821
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481595822.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481595822.localhost
+│   │   └── vocab
+│   ├── 1481596092
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481596092.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481596092.localhost
+│   │   └── vocab
+│   ├── 1481596159
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-100
+│   │   │   ├── model-100.meta
+│   │   │   ├── model-200
+│   │   │   └── model-200.meta
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481596160.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481596159.localhost
+│   │   └── vocab
+│   ├── 1481637188
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-1900
+│   │   │   ├── model-1900.meta
+│   │   │   ├── model-2000
+│   │   │   ├── model-2000.meta
+│   │   │   ├── model-2100
+│   │   │   ├── model-2100.meta
+│   │   │   ├── model-2200
+│   │   │   ├── model-2200.meta
+│   │   │   ├── model-2300
+│   │   │   └── model-2300.meta
+│   │   ├── prediction.csv
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1481637188.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1481637188.localhost
+│   │   └── vocab
+│   ├── 1482006359
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-500
+│   │   │   ├── model-500.meta
+│   │   │   ├── model-600
+│   │   │   ├── model-600.meta
+│   │   │   ├── model-700
+│   │   │   ├── model-700.meta
+│   │   │   ├── model-800
+│   │   │   ├── model-800.meta
+│   │   │   ├── model-900
+│   │   │   └── model-900.meta
+│   │   ├── prediction.csv
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1482006360.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1482006360.localhost
+│   │   └── vocab
+│   ├── 1482014166
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1482014167.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1482014166.localhost
+│   │   └── vocab
+│   ├── 1482015439
+│   │   ├── checkpoints
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1482015439.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1482015439.localhost
+│   │   └── vocab
+│   ├── 1482016882
+│   │   ├── checkpoints
+│   │   │   ├── checkpoint
+│   │   │   ├── model-2000
+│   │   │   ├── model-2000.meta
+│   │   │   ├── model-2100
+│   │   │   ├── model-2100.meta
+│   │   │   ├── model-2200
+│   │   │   ├── model-2200.meta
+│   │   │   ├── model-2300
+│   │   │   ├── model-2300.meta
+│   │   │   ├── model-2400
+│   │   │   ├── model-2400.meta
+│   │   │   ├── model-2500
+│   │   │   └── model-2500.meta
+│   │   ├── prediction.csv
+│   │   ├── summaries
+│   │   │   ├── dev
+│   │   │   │   └── events.out.tfevents.1482016883.localhost
+│   │   │   └── train
+│   │   │       └── events.out.tfevents.1482016883.localhost
+│   │   └── vocab
+│   └── 1482021924
+│       ├── checkpoints
+│       │   ├── checkpoint
+│       │   ├── model-1400
+│       │   ├── model-1400.meta
+│       │   ├── model-1500
+│       │   ├── model-1500.meta
+│       │   ├── model-1600
+│       │   ├── model-1600.meta
+│       │   ├── model-1700
+│       │   ├── model-1700.meta
+│       │   ├── model-1800
+│       │   └── model-1800.meta
+│       ├── summaries
+│       │   ├── dev
+│       │   │   └── events.out.tfevents.1482021925.localhost
+│       │   └── train
+│       │       └── events.out.tfevents.1482021924.localhost
+│       └── vocab
+├── text_cnn.py
+├── text_cnn.pyc
+├── train.py
+├── train_batches.py
+└── untitled
+
+363 directories, 435 files

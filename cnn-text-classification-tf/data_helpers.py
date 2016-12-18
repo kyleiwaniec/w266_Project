@@ -27,6 +27,7 @@ def clean_str(string):
     # string = re.sub(r"\)", " \) ", string)
     # string = re.sub(r"\?", " \? ", string)
     # string = re.sub(r"\s{2,}", " ", string)
+    string = re.sub(r"[0-9]+", "<NUM>", string) # one or more numbers
     
   
     return string.strip().lower()
